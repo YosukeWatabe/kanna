@@ -1,9 +1,10 @@
+import markov as mkpy
 command_file = open('chat.txt', encoding='utf-8')
 raw_data = command_file.read()
 command_file.close()
 lines = raw_data.splitlines()
-
-
+# a = mkpy.Mecab_file()
+# print(a)
 
 bot_dict = {}
 for line in lines:
@@ -21,4 +22,4 @@ def chat(command):
 
     if not response:
         response = '何ヲ言ッテイルカ、ワカラナイ'
-    return response
+    return mkpy.Mecab_file()
