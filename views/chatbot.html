@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>chatbot</title>
+    <style>
+        #titlebox {
+            width: 700px;
+            height: 50px;
+            background-color: rgb(78, 75, 75);
+            border: solid 3px gray;
+            border-radius: 5px;
+            color: white;
+            text-align: center;
+            margin: 0 auto 0 auto;
+            border-radius: 10px 10px 0 0;
+        }
+
+        #textbox {
+            height: 900px;
+            width: 700px;
+            background-color: rgb(187, 231, 169);
+            border: solid 3px gray;
+            margin: 0 auto 0 auto;
+        }
+
+        #inputbox {
+            height: 50px;
+            width: 700px;
+            background-color: rgb(78, 75, 75);
+            border: solid 3px gray;
+            margin: 0 auto 0 auto;
+            border-radius: 0 0 10px 10px;
+        }
+
+        #inputtext {
+            height: 30px;
+            width: 600px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="titlebox">
+        <p class="tittle">chatbot</p>
+    </div>
+    <div id="textbox">
+        <ul>
+            <li>自分: {{input_text}}</li>
+            <li>bot: {{output_text}}</li>
+        </ul>
+    </div>
+    </div>
+    <form method="post" action="/hello" id="inputbox">
+        <input type="text" name="input_text" id="inputtext">
+        <input type="submit" value="送信" id="sendbutton">
+    </form>
+
+</body>
+
+</html>
