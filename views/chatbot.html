@@ -1,36 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>chatbot</title>
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
+
     <style>
+        body {
+            font-family: "M PLUS 1p";
+            background-image: url("https://www.sozailab.jp/db_img/sozai/22969/e5be71d9cc1e5c5d28f4f838803b655a.jpg");
+        }
+
         #titlebox {
             width: 700px;
             height: 50px;
-            background-color: rgb(78, 75, 75);
+            background-color: rgb(130, 253, 255);
             border: solid 3px gray;
             border-radius: 5px;
-            color: white;
+            color: black;
             text-align: center;
             margin: 0 auto 0 auto;
             border-radius: 10px 10px 0 0;
+            font-size: 20px;
+            font: bold;
         }
 
         #textbox {
-            height: 900px;
+            height: 800px;
             width: 700px;
-            background-color: rgb(187, 231, 169);
+            background-image: url("https://thetv.jp/i/nw/131904/735361.jpg?w=615");
             border: solid 3px gray;
             margin: 0 auto 0 auto;
+            background-size: cover;
         }
 
         #inputbox {
             height: 50px;
             width: 700px;
-            background-color: rgb(78, 75, 75);
+            background-color: rgb(130, 253, 255);
             border: solid 3px gray;
             margin: 0 auto 0 auto;
             border-radius: 0 0 10px 10px;
@@ -41,25 +51,71 @@
             width: 600px;
             margin: 5px;
         }
+
+        #jibun {
+            position: relative;
+            display: inline-block;
+            margin: 5px 100px 1.5em 15px;
+            padding: 7px 10px;
+            min-width: 120px;
+            max-width: 100%;
+            color: #555;
+            font-size: 16px;
+            background-color: rgb(255, 255, 255, 0.5);
+            border: solid 3px #555;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+
+        #kanna {
+            position: relative;
+            top: 450px;
+            display: inline-block;
+            margin: 5px 15px 1.5em 100px;
+            padding: 7px 10px;
+            min-width: 120px;
+            max-width: 100%;
+            color: #555;
+            font-size: 16px;
+            background-color: rgb(255, 255, 255, 0.5);
+            border: solid 3px #555;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
     </style>
 </head>
 
 <body>
 
     <div id="titlebox">
-        <p class="tittle">chatbot</p>
+        <p class="tittle">かんな</p>
     </div>
     <div id="textbox">
-        <ul>
-            <li>自分: {{input_text}}</li>
-            <li>bot: {{output_text}}</li>
-        </ul>
     </div>
     </div>
     <form method="post" action="/hello" id="inputbox">
         <input type="text" name="input_text" id="inputtext">
-        <input type="submit" value="送信" id="sendbutton">
+        <input type="submit" value="送信" id="sendbutton" onclick="send()">
     </form>
+
+    <script>
+        function send(a, b) {
+            textbox.insertAdjacentElement('beforeend', a);
+            textbox.insertAdjacentElement('beforeend', b);
+            return a;
+            return b;
+        };
+
+        const sendbutton = document.getElementById("sendbutton");
+        const textbox = document.getElementById("textbox");
+        const newTag1 = document.createElement("div");
+        newTag1.id = "jibun";
+        newTag1.innerHTML = "<h3>自分</h3><p>{{ input_text }}</p>";
+        const newTag2 = document.createElement("div");
+        newTag2.id = "kanna";
+        newTag2.innerHTML = "<h3>かんな</h3><p>{{ output_text }}</p>";
+        send(newTag1, newTag2);
+    </script>
 
 </body>
 
